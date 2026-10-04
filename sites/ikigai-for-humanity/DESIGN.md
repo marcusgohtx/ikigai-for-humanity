@@ -217,7 +217,7 @@ Prompt chips carry the activity text and category tint without decorative dots. 
 
 Waiting text identifies who is writing or choosing. Toasts report brief action results and use `role="status"`. The app container announces updates politely.
 
-Current setup still exposes round settings within Game options, and the current recap has Copy recap and Done actions. The requested Keep playing, Stop playing, winner and tie behavior remains pending. This document does not define or claim those game rules.
+Setup has no round-count control. At each round boundary, the host sees Keep playing and Stop playing in the existing cream panel with coral and quiet buttons. Other players see a short waiting message. Stopping reveals cumulative author votes and names all tied leaders above the preserved idea recap. Copy recap includes the results; Done remains available.
 
 ## Do's and Don'ts
 
@@ -235,4 +235,4 @@ Current setup still exposes round settings within Game options, and the current 
 - Don't treat the discarded direction comps as an approved replacement identity.
 - Don't add decoration, repeated explanation or setup choices to the home actions.
 - Don't use category color as the sole indication of selected state.
-- Don't present pending round-ending or scoring rules as implemented behavior.
+- Don't reveal scores before the host chooses Stop playing.

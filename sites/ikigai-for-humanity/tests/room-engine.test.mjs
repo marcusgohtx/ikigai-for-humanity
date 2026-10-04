@@ -23,6 +23,81 @@ function memoryStore(state) {
   };
 }
 
+function finishRound(game, authors) {
+  for (let target = 0; target < game.state.players.length; target++) {
+    const turnId = game.state.turns.at(-1).id;
+    for (let writer = 0; writer < game.state.players.length; writer++) {
+      if (writer !== target) game.run(writer, 'submit_ikigai_idea', { p_turn_id: turnId, p_body: `A career idea from player ${writer} for player ${target}.` });
+    }
+    const turn = game.state.turns.at(-1);
+    const chosen = turn.ideas.find(idea => idea.authorId === game.state.players[authors[target]].id);
+    game.run(target, 'cast_ikigai_vote', { p_turn_id: turnId, p_idea_id: chosen.id });
+    game.run(target, 'complete_ikigai_turn', { p_turn_id: turnId, p_keep_ids: turn.ideas.map(idea => idea.id) });
+  }
+  return game.state.turns.at(-1).id;
+}
+
+test('host decisions are scoped to a boundary across retries, later rounds and competing requests', async () => {
+  const game = table(); game.start();
+  const first = finishRound(game, [1, 2, 0]);
+  const keep = { p_turn_id: first, p_decision: 'keep' };
+  assert.throws(() => game.run(1, 'decide_ikigai_round', keep), /Only the host/);
+  assert.throws(() => game.run(0, 'decide_ikigai_round', { ...keep, p_turn_id: 'OTHER1_unknown' }), /not found/);
+  assert.throws(() => game.run(0, 'decide_ikigai_round', { ...keep, p_turn_id: game.state.turns[0].id }), /current round/);
+  assert.throws(() => game.run(0, 'decide_ikigai_round', { ...keep, p_decision: 'maybe' }), /Choose Keep/);
+  const store = memoryStore(game.state);
+  await Promise.all(Array.from({ length: 4 }, () => transitionWithRetry(store, game.state.code, 'session-0', 'decide_ikigai_round', keep)));
+  assert.equal(store.state.turns.length, 4);
+  game.run(0, 'decide_ikigai_round', keep);
+  const second = finishRound(game, [1, 2, 0]);
+  assert.equal(applyAction(game.state, 'session-0', 'decide_ikigai_round', keep).changed, false);
+  assert.equal(game.state.status, 'round_end');
+  assert.throws(() => game.run(0, 'decide_ikigai_round', { ...keep, p_decision: 'stop' }), /already chose/);
+  const competing = memoryStore(game.state);
+  const outcomes = await Promise.allSettled(['keep', 'stop'].map(p_decision => transitionWithRetry(competing, game.state.code, 'session-0', 'decide_ikigai_round', { p_turn_id: second, p_decision })));
+  assert.equal(outcomes.filter(outcome => outcome.status === 'fulfilled').length, 1);
+  assert.equal(outcomes.filter(outcome => outcome.status === 'rejected').length, 1);
+});
+
+test('votes accumulate only for chosen authors, stay hidden until stopping and support shared wins', () => {
+  const game = table(3, 24); game.start();
+  assert.equal(game.state.config.roundCount, 1);
+  const decks = structuredClone(game.state.players.map(player => player.activities));
+  const first = finishRound(game, [1, 0, 0]);
+  for (let player = 0; player < 3; player++) {
+    const snapshot = roomSnapshot(game.state, `session-${player}`);
+    assert.deepEqual(snapshot.scores, []);
+    assert.deepEqual(snapshot.results, []);
+    assert.equal(JSON.stringify(snapshot).includes('authorId'), false);
+    assert.deepEqual(snapshot.roundEnd, { turnId: first, number: 1 });
+  }
+  game.run(0, 'decide_ikigai_round', { p_turn_id: first, p_decision: 'keep' });
+  assert.deepEqual(game.state.players.map(player => player.activities), decks);
+  assert.equal(game.state.turns.at(-1).targetId, game.state.players[0].id);
+  assert.deepEqual(roomSnapshot(game.state, 'session-0').scores, []);
+  const second = finishRound(game, [1, 0, 1]);
+  const stop = { p_turn_id: second, p_decision: 'stop' };
+  game.run(0, 'decide_ikigai_round', stop);
+  assert.equal(applyAction(game.state, 'session-0', 'decide_ikigai_round', stop).changed, false);
+  const result = roomSnapshot(game.state, 'session-1');
+  assert.deepEqual(result.scores.map(({ votes, winner }) => ({ votes, winner })), [{ votes: 3, winner: true }, { votes: 3, winner: true }, { votes: 0, winner: false }]);
+  assert.equal(result.results.length, 6);
+  assert.ok(result.results.every(turn => turn.ideas.every(idea => idea.keep)));
+});
+
+test('legacy active rooms pause at their next boundary and completed rooms retain their recap', () => {
+  const game = table(2); game.start();
+  game.state.config.roundCount = 24;
+  const boundary = finishRound(game, [1, 0]);
+  assert.equal(game.state.status, 'round_end');
+  game.state.status = 'complete'; // Stored pre-update room, without a round decision.
+  const before = roomSnapshot(game.state, 'session-0');
+  assert.equal(before.results.length, 2);
+  assert.throws(() => game.run(0, 'decide_ikigai_round', { p_turn_id: boundary, p_decision: 'keep' }), /moved on/);
+  game.run(0, 'begin_ikigai_game');
+  assert.deepEqual(roomSnapshot(game.state, 'session-0'), before);
+});
+
 test('concurrent joins assign unique seats and never overfill', async () => {
   const state = createRoom('session-0', { p_name: 'Host', p_config: config(8) }, 'TST234');
   const store = memoryStore(state);
@@ -75,6 +150,10 @@ test('all players finish multiple rounds with Keep exploring and Idea bank intac
     const count = game.state.turns.length;
     game.run(targetIndex, 'complete_ikigai_turn', { p_turn_id: turn.id, p_keep_ids: [chosen] });
     assert.equal(game.state.turns.length, count, 'retries must not create another turn');
+    if (turnNumber % 3 === 0) {
+      assert.equal(game.state.status, 'round_end');
+      game.run(0, 'decide_ikigai_round', { p_turn_id: turn.id, p_decision: turnNumber === 6 ? 'stop' : 'keep' });
+    }
   }
   const snapshot = roomSnapshot(game.state, 'session-2');
   assert.equal(snapshot.room.status, 'complete');

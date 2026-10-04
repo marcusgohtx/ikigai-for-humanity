@@ -27,7 +27,7 @@ export function validateConfig(input) {
     mode: input.mode, source: input.source,
     playerCount: integer(input.playerCount, 2, 8, 'number of players'),
     itemsPerCategory: integer(input.itemsPerCategory, 1, 8, 'activity count'),
-    roundCount: integer(input.roundCount, 1, 24, 'round count'), roundCardCounts: {},
+    roundCount: 1, roundCardCounts: {},
   };
   for (const category of CATEGORIES) config.roundCardCounts[category] = integer(input.roundCardCounts?.[category], 0, config.itemsPerCategory, 'prompt card count');
   if (!Object.values(config.roundCardCounts).some(Boolean)) fail('Choose at least one prompt card.');
@@ -122,7 +122,7 @@ export function applyAction(original, session, name, args = {}, now = Date.now()
       me.activitiesReady = true;
     } else if (name === 'begin_ikigai_game') {
       host(room, session);
-      if (room.status === 'playing' || room.status === 'complete') return { room, changed: false, data: null };
+      if (['playing', 'round_end', 'complete'].includes(room.status)) return { room, changed: false, data: null };
       phase(room, 'activities');
       if (!room.players.every(player => player.activitiesReady)) fail('Wait for everyone to finish their activities.');
       room.status = 'playing'; startTurn(room);
@@ -158,8 +158,22 @@ export function applyAction(original, session, name, args = {}, now = Date.now()
       const keepIds = args.p_keep_ids === undefined ? turn.keepIds : args.p_keep_ids;
       if (!Array.isArray(keepIds) || keepIds.length > turn.ideas.length || keepIds.some(value => typeof value !== 'string' || !turn.ideas.some(idea => idea.id === value))) fail('Choose ideas from this turn to keep exploring.');
       turn.keepIds = [...new Set(keepIds)]; turn.status = 'complete';
-      if (room.turns.length >= room.config.playerCount * room.config.roundCount) room.status = 'complete';
+      if (room.turns.length % room.players.length === 0) room.status = 'round_end';
       else startTurn(room);
+    } else if (name === 'decide_ikigai_round') {
+      host(room, session);
+      if (!['keep', 'stop'].includes(args.p_decision)) fail('Choose Keep playing or Stop playing.');
+      const boundary = room.turns.find(turn => turn.id === args.p_turn_id);
+      if (!boundary) fail('That round was not found.', 404);
+      if (boundary.roundDecision) {
+        if (boundary.roundDecision !== args.p_decision) fail('The host already chose for this round.', 409);
+        return { room, changed: false, data: null };
+      }
+      phase(room, 'round_end');
+      if (boundary !== room.turns.at(-1) || boundary.status !== 'complete' || boundary.number % room.players.length !== 0) fail('Choose for the current round.', 409);
+      boundary.roundDecision = args.p_decision;
+      room.status = args.p_decision === 'stop' ? 'complete' : 'playing';
+      if (args.p_decision === 'keep') startTurn(room);
     } else fail('Unknown room action.', 404);
   }
   return { room, changed, data: null };
@@ -186,6 +200,8 @@ export function roomSnapshot(room, session, now = Date.now()) {
   return {
     room: { code: room.code, title: room.title, config: room.config, status: room.status, isHost: room.hostSession === session },
     me: publicPlayer(me), players: room.players.map(publicPlayer), turn: current,
+    roundEnd: room.status === 'round_end' ? { turnId: room.turns.at(-1).id, number: room.turns.at(-1).tableRound } : null,
+    scores: room.status === 'complete' ? finalScores(room) : [],
     results: room.status === 'complete' ? room.turns.map(item => ({
       turnNumber: item.number, tableRound: item.tableRound,
       targetName: room.players.find(player => player.id === item.targetId).name,
@@ -196,8 +212,19 @@ export function roomSnapshot(room, session, now = Date.now()) {
 }
 
 export function actionCode(name, args) {
-  return validCode(['submit_ikigai_idea', 'cast_ikigai_vote', 'complete_ikigai_turn'].includes(name)
+  return validCode(['submit_ikigai_idea', 'cast_ikigai_vote', 'complete_ikigai_turn', 'decide_ikigai_round'].includes(name)
     ? (typeof args.p_turn_id === 'string' ? args.p_turn_id.split('_')[0] : '') : args.p_code);
+}
+
+function finalScores(room) {
+  const votes = new Map(room.players.map(player => [player.id, 0]));
+  for (const turn of room.turns) {
+    if (turn.status !== 'complete') continue;
+    const author = turn.ideas.find(idea => idea.id === turn.winnerId)?.authorId;
+    if (votes.has(author)) votes.set(author, votes.get(author) + 1);
+  }
+  const highest = Math.max(...votes.values());
+  return room.players.map(player => ({ id: player.id, name: player.name, votes: votes.get(player.id), winner: votes.get(player.id) === highest }));
 }
 
 export async function transitionWithRetry(store, code, session, name, args, attempts = 16) {

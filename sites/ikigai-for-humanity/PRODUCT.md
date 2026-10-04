@@ -24,7 +24,8 @@ The host shares a room link. Players choose or write activity cards concurrently
 - Keep the 400-card deck, four Ikigai categories, anonymous ideas for groups of three or more, and saved recap.
 - Remove the one-device option. The requested interface should use far fewer words.
 - Every game starts with one round, meaning one turn per player. After each round, the host chooses Keep playing or Stop playing. Round counts do not appear in setup.
-- Stop playing reveals the player with the most votes. Score accumulation and ties are being confirmed.
+- Each chosen idea earns its author one cumulative vote. Saving other ideas does not award votes. Scores stay hidden until Stop playing reveals the leaders, with tied leaders sharing the win.
+- Keep playing reuses existing activity cards and gives every player another turn.
 - Room data remains available for 30 days.
 
 ## Brand commitments

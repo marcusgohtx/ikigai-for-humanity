@@ -4,7 +4,7 @@ import { createRoomStore } from '../../../lib/room-store.mjs';
 
 const COOKIE = 'ikigai_session';
 const LIMIT = 32768;
-const allowed = new Set(['create_ikigai_room', 'join_ikigai_room', 'start_ikigai_room', 'configure_ikigai_room', 'submit_ikigai_activities', 'begin_ikigai_game', 'submit_ikigai_idea', 'cast_ikigai_vote', 'complete_ikigai_turn', 'ikigai_room_snapshot']);
+const allowed = new Set(['create_ikigai_room', 'join_ikigai_room', 'start_ikigai_room', 'configure_ikigai_room', 'submit_ikigai_activities', 'begin_ikigai_game', 'submit_ikigai_idea', 'cast_ikigai_vote', 'complete_ikigai_turn', 'decide_ikigai_round', 'ikigai_room_snapshot']);
 
 function browserSession(request: Request) {
   const candidate = request.headers.get('cookie')?.split(';').map(value => value.trim()).find(value => value.startsWith(`${COOKIE}=`))?.slice(COOKIE.length + 1);
