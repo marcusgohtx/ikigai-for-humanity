@@ -1,0 +1,211 @@
+{
+  "title": "A shorter, clearer Ikigai",
+  "question": "Choose the game’s new look.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Around the table",
+      "kicker": "THE ROLL",
+      "lineage": "A shared game-night score sheet",
+      "thesis": "One clear place for each player and each turn.",
+      "palette": [
+        "#f8f5ec",
+        "#182921",
+        "#537657"
+      ],
+      "materials": [
+        "printed sheet",
+        "bold column headings"
+      ],
+      "viewport": "A compact game title, player seats, and two large start controls.",
+      "risk": "The score-sheet structure could feel too orderly for a party.",
+      "raised": [
+        {
+          "from": "Emigre specimen",
+          "raise": "Use decisive type scale, with instructions kept subordinate."
+        },
+        {
+          "from": "Labanotation",
+          "raise": "Make each player's place in the turn order explicit."
+        },
+        {
+          "from": "Exposure sheets",
+          "raise": "Use unmistakable selected and unselected card states."
+        },
+        {
+          "from": "Catalog sleeve",
+          "raise": "Keep a consistent visual rhythm across every game state."
+        },
+        {
+          "from": "Transit diagram",
+          "raise": "Make the next action obvious at every stage."
+        },
+        {
+          "from": "Boarding pass",
+          "raise": "Keep room codes and player counts easy to find."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.png"
+    },
+    {
+      "id": "model-pick",
+      "label": "The party deck",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Black-and-white party card games",
+      "thesis": "Big words on simple cards, with room to play.",
+      "palette": [
+        "#f6f4ed",
+        "#171916",
+        "#c9e66c"
+      ],
+      "materials": [
+        "matte cards",
+        "heavy sans-serif type"
+      ],
+      "viewport": "Ikigai for Humanity on a dark card beside Host and Join, with one sentence explaining the game.",
+      "risk": "Familiar to party-game players; less visually surprising.",
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "emigre-bitmap-specimen",
+      "label": "Type specimen",
+      "verdict": "declined",
+      "lineage": "Type specimen",
+      "thesis": "Pixel type distracts from reading career ideas.",
+      "palette": [
+        "#ffffff",
+        "#111111"
+      ],
+      "materials": [
+        "graphic notation"
+      ],
+      "viewport": "Game controls organized using this visual system.",
+      "risk": "Unfamiliar structure adds reading.",
+      "case": "Pixel type distracts from reading career ideas.",
+      "kept": "A decisive type hierarchy.",
+      "hero": "https://impeccable.style/worlds/cards/emigre-bitmap-specimen-hero.webp"
+    },
+    {
+      "id": "notation-diagram-systems-labanotation",
+      "label": "Movement notation",
+      "verdict": "declined",
+      "lineage": "Movement notation",
+      "thesis": "Its symbols add a learning step to a simple game.",
+      "palette": [
+        "#faf8ee",
+        "#171717"
+      ],
+      "materials": [
+        "graphic notation"
+      ],
+      "viewport": "Game controls organized using this visual system.",
+      "risk": "Unfamiliar structure adds reading.",
+      "case": "Its symbols add a learning step to a simple game.",
+      "kept": "Explicit player order.",
+      "hero": "https://impeccable.style/worlds/cards/notation-diagram-systems-labanotation-hero.webp"
+    },
+    {
+      "id": "brand-identity-canon-saville-catalog-sleeve",
+      "label": "Catalog sleeve",
+      "verdict": "declined",
+      "lineage": "Catalog sleeve",
+      "thesis": "Coded labels make the next action harder to understand.",
+      "palette": [
+        "#171717",
+        "#ecebe2"
+      ],
+      "materials": [
+        "graphic notation"
+      ],
+      "viewport": "Game controls organized using this visual system.",
+      "risk": "Unfamiliar structure adds reading.",
+      "case": "Coded labels make the next action harder to understand.",
+      "kept": "Consistent rhythm across game states.",
+      "hero": "https://impeccable.style/worlds/cards/brand-identity-canon-saville-catalog-sleeve-hero.webp"
+    },
+    {
+      "id": "wayfinding-cartography-signage-midnight-transit-diagram",
+      "label": "Transit map",
+      "verdict": "declined",
+      "lineage": "Transit map",
+      "thesis": "Routes imply navigation choices the game does not have.",
+      "palette": [
+        "#102138",
+        "#d3e869"
+      ],
+      "materials": [
+        "graphic notation"
+      ],
+      "viewport": "Game controls organized using this visual system.",
+      "risk": "Unfamiliar structure adds reading.",
+      "case": "Routes imply navigation choices the game does not have.",
+      "kept": "An obvious next action.",
+      "hero": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-midnight-transit-diagram-hero.webp"
+    },
+    {
+      "id": "vernacular-ephemera-boarding-pass-and-gate-board",
+      "label": "Boarding pass",
+      "verdict": "declined",
+      "lineage": "Boarding pass",
+      "thesis": "Travel paperwork feels less social than a game table.",
+      "palette": [
+        "#fafafa",
+        "#161616"
+      ],
+      "materials": [
+        "graphic notation"
+      ],
+      "viewport": "Game controls organized using this visual system.",
+      "risk": "Unfamiliar structure adds reading.",
+      "case": "Travel paperwork feels less social than a game table.",
+      "kept": "Room codes and player counts stay visible.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-boarding-pass-and-gate-board-hero.webp"
+    },
+    {
+      "id": "operate-b-exposure-record-zone-sheets",
+      "label": "Exposure sheet",
+      "verdict": "declined",
+      "lineage": "Exposure sheet",
+      "thesis": "Tonal calibration adds visual complexity without helping play.",
+      "palette": [
+        "#161616",
+        "#f4f1e8"
+      ],
+      "materials": [
+        "graphic notation"
+      ],
+      "viewport": "Game controls organized using this visual system.",
+      "risk": "Unfamiliar structure adds reading.",
+      "case": "Tonal calibration adds visual complexity without helping play.",
+      "kept": "Clear selected and unselected states.",
+      "hero": "https://impeccable.style/worlds/cards/operate-b-exposure-record-zone-sheets-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "Simple web app",
+    "thesis": "A familiar form-led interface.",
+    "palette": [
+      "#ffffff",
+      "#202020",
+      "#315bd6"
+    ],
+    "materials": [
+      "plain panels"
+    ],
+    "viewport": "Title above a Host and Join form.",
+    "risk": "Could look like a utility rather than a game.",
+    "comp": ".impeccable/mocks/decision/canon.png"
+  },
+  "steer": true
+}
