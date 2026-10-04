@@ -1,6 +1,6 @@
 # Ikigai for Humanity
 
-This ChatGPT Site adapts the original game in the parent workspace for 2–8 players on separate devices. Its 400 activity cards, four categories, Quick/Deep/Custom modes and one-device game remain intact.
+Play with 2–8 friends, each on their own device. The game keeps the original 400 activity cards, four Ikigai categories and pastel design. The home screen offers Host and Join. Optional card settings are under Game options.
 
 Host a room and share its link. Players build their decks together, then write ideas for the active player at the same time. With three or more players, only the active player sees the shuffled anonymous ideas before choosing a path. Two-player rooms use direct reflection. Players can keep any number of ideas and retain the rest in their idea bank.
 
@@ -13,7 +13,7 @@ Install and build with the Sites plugin helpers. The project uses the supplied V
 ## Source
 
 - `app/game.html` and `app/route.ts` serve the original HTML shell.
-- `public/` holds the original card deck, shared game definitions, one-device game, room UI and styles.
+- `public/cards.js`, `public/game-core.js`, `public/room.js` and `public/game.css` provide the deck, shared definitions, multiplayer interface and styles. The legacy `app.js` and `styles.css` remain as source reference and are not loaded.
 - `app/api/rooms/route.ts` handles same-origin room requests using HttpOnly browser sessions.
 - `lib/room-engine.mjs` validates actions, hides private data and defines game transitions.
 - `lib/room-store.mjs` stores large rooms in bounded chunks with atomic updates.
@@ -27,4 +27,6 @@ Run the Node tests with `node --test --test-isolation=none tests/*.test.mjs`.
 
 `node tests/http-smoke.mjs http://127.0.0.1:5173` plays a complete three-player game through the real API. It checks separate browser sessions, simultaneous submissions, role checks, anonymous voting, duplicate requests and the complete recap. It creates only a synthetic test room.
 
-The site identity is recorded in `.openai/hosting.json`. Use Sites source synchronization and saved-version deployment for updates. The parent app remains unchanged.
+The site identity is recorded in `.openai/hosting.json`. Use Sites source synchronization and saved-version deployment for updates. The canonical GitHub source is in `marcusgohtx.github.io/ikigai-for-humanity/sites/ikigai-for-humanity`. The older Desktop checkout is the Sites publishing workspace and is synchronized back to that source after changes.
+
+The proposed host-controlled Keep playing / Stop playing flow and vote totals are not implemented in this version. Their remaining rule choices are recorded in PRODUCT.md.

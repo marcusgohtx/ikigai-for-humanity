@@ -11,24 +11,24 @@
   const modes = {
     deep: {
       label: 'Deep',
-      option: 'Deep · create your own activities',
-      description: 'Create three original activities in each category, then explore two rounds of combinations.',
+      option: 'Write your own',
+      description: 'Write three activities per category. Two rounds.',
       source: 'own',
       itemsPerCategory: 3,
       roundCount: 2
     },
     quick: {
       label: 'Quick',
-      option: 'Quick · choose pre-made activities',
-      description: 'Choose three pre-made activities in each category for a shorter one-round game.',
+      option: 'Choose from the deck',
+      description: 'Pick three activities per category. One round.',
       source: 'premade',
       itemsPerCategory: 3,
       roundCount: 1
     },
     custom: {
       label: 'Custom',
-      option: 'Custom · configure the game',
-      description: 'Choose your activity source, deck size, round count, and prompt mix.',
+      option: 'Custom',
+      description: 'Set up your own card mix.',
       source: 'premade',
       itemsPerCategory: 3,
       roundCount: 2
@@ -43,7 +43,7 @@
     const modeOptions = Object.entries(modes).map(([key, mode]) =>
       `<option value="${key}" ${key === 'quick' ? 'selected' : ''}>${mode.option}</option>`
     ).join('');
-    return `<label class="field-label" for="${prefix}-mode">Choose a game mode</label><select id="${prefix}-mode">${modeOptions}</select><p class="helper" id="${prefix}-mode-description">${modes.quick.description}</p><div id="${prefix}-custom-options" hidden><label class="field-label" for="${prefix}-source">Activity source</label><select id="${prefix}-source"><option value="premade">Pre-made cards</option><option value="own">Self-generated activities</option></select><div class="config-grid"><label>Items per category<input id="${prefix}-items" type="number" min="1" max="8" value="${modes.custom.itemsPerCategory}"></label><label>Table rounds<input id="${prefix}-rounds" type="number" min="1" max="24" value="${modes.custom.roundCount}"></label></div><p class="field-label">Cards in each turn prompt</p><div class="config-grid category-counts">${categories.map(({key, label}) => `<label>${label}<input id="${prefix}-count-${key}" type="number" min="0" max="8" value="1"></label>`).join('')}</div></div>`;
+    return `<label class="field-label" for="${prefix}-mode">Activity cards</label><select id="${prefix}-mode">${modeOptions}</select><p class="helper" id="${prefix}-mode-description">${modes.quick.description}</p><div id="${prefix}-custom-options" hidden><label class="field-label" for="${prefix}-source">Activity source</label><select id="${prefix}-source"><option value="premade">Pre-made cards</option><option value="own">Write your own</option></select><div class="config-grid"><label>Items per category<input id="${prefix}-items" type="number" min="1" max="8" value="${modes.custom.itemsPerCategory}"></label><label>Table rounds<input id="${prefix}-rounds" type="number" min="1" max="24" value="${modes.custom.roundCount}"></label></div><p class="field-label">Cards in each turn prompt</p><div class="config-grid category-counts">${categories.map(({key, label}) => `<label>${label}<input id="${prefix}-count-${key}" type="number" min="0" max="8" value="1"></label>`).join('')}</div></div>`;
   }
 
   function syncModeForm(prefix) {
@@ -95,11 +95,11 @@
     const mode = modes[config.mode] || modes.custom;
     const source = config.source === 'own' ? 'Self-generated' : 'Pre-made';
     const prompt = activeCategories(config).map(({key, label}) => `${label}: ${config.roundCardCounts[key]}`).join(' · ');
-    return `${mode.label} · ${source} · ${countLabel(config.itemsPerCategory, 'activity')} per active category · ${countLabel(config.roundCount, 'table round')} · Prompt: ${prompt}`;
+    return `${countLabel(config.roundCount, 'round')} · ${config.source === 'own' ? 'Your own activities' : 'Cards from the deck'}`;
   }
 
   function categoryStrip() {
-    return `<div class="category-strip">${categories.map(({key, label}, index) => `<div class="${key}"><span>0${index + 1}</span><b>${label}</b></div>`).join('')}</div>`;
+    return `<div class="category-strip">${categories.map(({key, label}, index) => `<div class="${key}"><b>${label}</b></div>`).join('')}</div>`;
   }
 
   function notify(message) {

@@ -31,6 +31,8 @@ The host shares a room link. Players choose or write activity cards concurrently
 
 The new name is Ikigai for Humanity, with ikigai-for-humanity used for the app folder, GitHub repository and ChatGPT Site slug. The user named Cards Against Humanity as inspiration. No affiliation is claimed.
 
+Keep the original pastel coral, blue, yellow and green, warm cream background, serif headings and friendly feel. The user explicitly rejected replacing this identity. Simplify copy, layout and controls within the existing style. The prior direction comparison is superseded and its comps are not approved.
+
 ## Evidence on hand
 
 The existing deck and game definitions are in public/cards.js and public/game-core.js. The live room flow is in public/room.js. Existing server tests cover multiplayer, privacy and persistence.

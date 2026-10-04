@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T09:17:20.471872+00:00",
+  "title": "Design System: Ikigai for Humanity",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0239 169.48)",
+          "oklch(26% 0.0239 169.48)",
+          "oklch(38% 0.0239 169.48)",
+          "oklch(49% 0.0239 169.48)",
+          "oklch(61% 0.0239 169.48)",
+          "oklch(72% 0.0239 169.48)",
+          "oklch(84% 0.0239 169.48)",
+          "oklch(95% 0.0239 169.48)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0204 164.02)",
+          "oklch(26% 0.0204 164.02)",
+          "oklch(38% 0.0204 164.02)",
+          "oklch(49% 0.0204 164.02)",
+          "oklch(61% 0.0204 164.02)",
+          "oklch(72% 0.0204 164.02)",
+          "oklch(84% 0.0204 164.02)",
+          "oklch(95% 0.0204 164.02)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0091 78.28)",
+          "oklch(26% 0.0091 78.28)",
+          "oklch(38% 0.0091 78.28)",
+          "oklch(49% 0.0091 78.28)",
+          "oklch(61% 0.0091 78.28)",
+          "oklch(72% 0.0091 78.28)",
+          "oklch(84% 0.0091 78.28)",
+          "oklch(95% 0.0091 78.28)"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream",
+        "tonalRamp": [
+          "oklch(15% 0.0057 84.57)",
+          "oklch(26% 0.0057 84.57)",
+          "oklch(38% 0.0057 84.57)",
+          "oklch(49% 0.0057 84.57)",
+          "oklch(61% 0.0057 84.57)",
+          "oklch(72% 0.0057 84.57)",
+          "oklch(84% 0.0057 84.57)",
+          "oklch(95% 0.0057 84.57)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.0129 126.39)",
+          "oklch(26% 0.0129 126.39)",
+          "oklch(38% 0.0129 126.39)",
+          "oklch(49% 0.0129 126.39)",
+          "oklch(61% 0.0129 126.39)",
+          "oklch(72% 0.0129 126.39)",
+          "oklch(84% 0.0129 126.39)",
+          "oklch(95% 0.0129 126.39)"
+        ]
+      },
+      "coral": {
+        "role": "primary",
+        "displayName": "Coral",
+        "tonalRamp": [
+          "oklch(15% 0.1564 35.46)",
+          "oklch(26% 0.1564 35.46)",
+          "oklch(38% 0.1564 35.46)",
+          "oklch(49% 0.1564 35.46)",
+          "oklch(61% 0.1564 35.46)",
+          "oklch(72% 0.1564 35.46)",
+          "oklch(84% 0.1564 35.46)",
+          "oklch(95% 0.1564 35.46)"
+        ]
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Blue",
+        "tonalRamp": [
+          "oklch(15% 0.0728 233.73)",
+          "oklch(26% 0.0728 233.73)",
+          "oklch(38% 0.0728 233.73)",
+          "oklch(49% 0.0728 233.73)",
+          "oklch(61% 0.0728 233.73)",
+          "oklch(72% 0.0728 233.73)",
+          "oklch(84% 0.0728 233.73)",
+          "oklch(95% 0.0728 233.73)"
+        ]
+      },
+      "yellow": {
+        "role": "secondary",
+        "displayName": "Yellow",
+        "tonalRamp": [
+          "oklch(15% 0.1323 89.25)",
+          "oklch(26% 0.1323 89.25)",
+          "oklch(38% 0.1323 89.25)",
+          "oklch(49% 0.1323 89.25)",
+          "oklch(61% 0.1323 89.25)",
+          "oklch(72% 0.1323 89.25)",
+          "oklch(84% 0.1323 89.25)",
+          "oklch(95% 0.1323 89.25)"
+        ]
+      },
+      "green": {
+        "role": "tertiary",
+        "displayName": "Green",
+        "tonalRamp": [
+          "oklch(15% 0.0760 152.16)",
+          "oklch(26% 0.0760 152.16)",
+          "oklch(38% 0.0760 152.16)",
+          "oklch(49% 0.0760 152.16)",
+          "oklch(61% 0.0760 152.16)",
+          "oklch(72% 0.0760 152.16)",
+          "oklch(84% 0.0760 152.16)",
+          "oklch(95% 0.0760 152.16)"
+        ]
+      },
+      "love-tint": {
+        "role": "primary",
+        "displayName": "Love tint",
+        "tonalRamp": [
+          "oklch(15% 0.0319 42.26)",
+          "oklch(26% 0.0319 42.26)",
+          "oklch(38% 0.0319 42.26)",
+          "oklch(49% 0.0319 42.26)",
+          "oklch(61% 0.0319 42.26)",
+          "oklch(72% 0.0319 42.26)",
+          "oklch(84% 0.0319 42.26)",
+          "oklch(95% 0.0319 42.26)"
+        ]
+      },
+      "strength-tint": {
+        "role": "secondary",
+        "displayName": "Strength tint",
+        "tonalRamp": [
+          "oklch(15% 0.0193 230.70)",
+          "oklch(26% 0.0193 230.70)",
+          "oklch(38% 0.0193 230.70)",
+          "oklch(49% 0.0193 230.70)",
+          "oklch(61% 0.0193 230.70)",
+          "oklch(72% 0.0193 230.70)",
+          "oklch(84% 0.0193 230.70)",
+          "oklch(95% 0.0193 230.70)"
+        ]
+      },
+      "opportunity-tint": {
+        "role": "secondary",
+        "displayName": "Opportunity tint",
+        "tonalRamp": [
+          "oklch(15% 0.0533 94.44)",
+          "oklch(26% 0.0533 94.44)",
+          "oklch(38% 0.0533 94.44)",
+          "oklch(49% 0.0533 94.44)",
+          "oklch(61% 0.0533 94.44)",
+          "oklch(72% 0.0533 94.44)",
+          "oklch(84% 0.0533 94.44)",
+          "oklch(95% 0.0533 94.44)"
+        ]
+      },
+      "need-tint": {
+        "role": "tertiary",
+        "displayName": "Need tint",
+        "tonalRamp": [
+          "oklch(15% 0.0226 141.23)",
+          "oklch(26% 0.0226 141.23)",
+          "oklch(38% 0.0226 141.23)",
+          "oklch(49% 0.0226 141.23)",
+          "oklch(61% 0.0226 141.23)",
+          "oklch(72% 0.0226 141.23)",
+          "oklch(84% 0.0226 141.23)",
+          "oklch(95% 0.0226 141.23)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Primary hover",
+        "tonalRamp": [
+          "oklch(15% 0.0338 160.61)",
+          "oklch(26% 0.0338 160.61)",
+          "oklch(38% 0.0338 160.61)",
+          "oklch(49% 0.0338 160.61)",
+          "oklch(61% 0.0338 160.61)",
+          "oklch(72% 0.0338 160.61)",
+          "oklch(84% 0.0338 160.61)",
+          "oklch(95% 0.0338 160.61)"
+        ]
+      },
+      "coral-hover": {
+        "role": "primary",
+        "displayName": "Coral hover",
+        "tonalRamp": [
+          "oklch(15% 0.1292 35.83)",
+          "oklch(26% 0.1292 35.83)",
+          "oklch(38% 0.1292 35.83)",
+          "oklch(49% 0.1292 35.83)",
+          "oklch(61% 0.1292 35.83)",
+          "oklch(72% 0.1292 35.83)",
+          "oklch(84% 0.1292 35.83)",
+          "oklch(95% 0.1292 35.83)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field border",
+        "tonalRamp": [
+          "oklch(15% 0.0187 148.03)",
+          "oklch(26% 0.0187 148.03)",
+          "oklch(38% 0.0187 148.03)",
+          "oklch(49% 0.0187 148.03)",
+          "oklch(61% 0.0187 148.03)",
+          "oklch(72% 0.0187 148.03)",
+          "oklch(84% 0.0187 148.03)",
+          "oklch(95% 0.0187 148.03)"
+        ]
+      },
+      "card-border": {
+        "role": "neutral",
+        "displayName": "Card border",
+        "tonalRamp": [
+          "oklch(15% 0.0166 148.36)",
+          "oklch(26% 0.0166 148.36)",
+          "oklch(38% 0.0166 148.36)",
+          "oklch(49% 0.0166 148.36)",
+          "oklch(61% 0.0166 148.36)",
+          "oklch(72% 0.0166 148.36)",
+          "oklch(84% 0.0166 148.36)",
+          "oklch(95% 0.0166 148.36)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Home question",
+        "purpose": "The single home h1."
+      },
+      "card-title": {
+        "displayName": "Activity title",
+        "purpose": "Desktop 19px; mobile 17px with automatic hyphenation."
+      }
+    },
+    "shadows": [
+      {
+        "name": "activity-hover",
+        "value": "0 5px 15px #21312b14",
+        "purpose": "Activity-card hover only."
+      },
+      {
+        "name": "toast",
+        "value": "0 8px 24px #21312b26",
+        "purpose": "Transient action feedback."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-color",
+        "value": "background .18s, color .18s",
+        "purpose": "Button state changes."
+      },
+      {
+        "name": "activity-selection",
+        "value": "background .2s cubic-bezier(.16,1,.3,1), outline-color .2s, box-shadow .2s",
+        "purpose": "Activity-card fill and selection."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none; transition: none; scroll-behavior: auto",
+        "purpose": "Applied with prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ink button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pill action with the implemented hover, keyboard focus and disabled states.",
+      "html": "<button class=\"ds-button-primary\">Send idea</button>",
+      "css": ".ds-button-primary{min-height:46px;padding:12px 22px;border:1px solid var(--ink, #21312b);border-radius:999px;font:800 14px/1.5 Manrope,Arial,sans-serif;cursor:pointer;transition:background .18s,color .18s;background:var(--ink, #21312b);color:var(--cream, #fffdf9);border-color:var(--ink, #21312b);}.ds-button-primary:hover:not(:disabled){background:#3b5145;}.ds-button-primary:focus-visible{outline:3px solid var(--ink, #21312b);outline-offset:4px}.ds-button-primary:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button-primary{transition:none}}"
+    },
+    {
+      "name": "Coral button",
+      "kind": "button",
+      "refersTo": "button-coral",
+      "description": "Pill action with the implemented hover, keyboard focus and disabled states.",
+      "html": "<button class=\"ds-button-coral\">Host a room</button>",
+      "css": ".ds-button-coral{min-height:46px;padding:12px 22px;border:1px solid var(--ink, #21312b);border-radius:999px;font:800 14px/1.5 Manrope,Arial,sans-serif;cursor:pointer;transition:background .18s,color .18s;background:var(--coral, #ef7657);color:var(--ink, #21312b);border-color:var(--coral, #ef7657);}.ds-button-coral:hover:not(:disabled){background:#f38e73;border-color:#f38e73;}.ds-button-coral:focus-visible{outline:3px solid var(--ink, #21312b);outline-offset:4px}.ds-button-coral:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button-coral{transition:none}}"
+    },
+    {
+      "name": "Quiet button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Pill action with the implemented hover, keyboard focus and disabled states.",
+      "html": "<button class=\"ds-button-quiet\">Join a room</button>",
+      "css": ".ds-button-quiet{min-height:46px;padding:12px 22px;border:1px solid var(--ink, #21312b);border-radius:999px;font:800 14px/1.5 Manrope,Arial,sans-serif;cursor:pointer;transition:background .18s,color .18s;background:transparent;color:var(--ink, #21312b);border-color:var(--line, #d8dcd3);}.ds-button-quiet:hover:not(:disabled){background:var(--line, #d8dcd3);}.ds-button-quiet:focus-visible{outline:3px solid var(--ink, #21312b);outline-offset:4px}.ds-button-quiet:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button-quiet{transition:none}}"
+    },
+    {
+      "name": "Name field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Visible label and cream field.",
+      "html": "<label class=\"ds-label\" for=\"ds-name\">Your name</label><input class=\"ds-input\" id=\"ds-name\" type=\"text\" placeholder=\"e.g. Ari\">",
+      "css": ".ds-label{display:block;margin:0 0 8px;color:var(--ink, #21312b);font:700 13px/1.5 Manrope,Arial,sans-serif}.ds-input{width:100%;min-height:46px;padding:12px 14px;border:1px solid #a9b4aa;border-radius:10px;background:var(--cream, #fffdf9);color:var(--ink, #21312b);font:16px/1.5 Manrope,Arial,sans-serif;caret-color:var(--ink, #21312b)}.ds-input::placeholder{color:var(--muted, #58665f);opacity:1}.ds-input:focus-visible{outline:3px solid var(--ink, #21312b);outline-offset:4px}"
+    },
+    {
+      "name": "Activity card",
+      "kind": "card",
+      "refersTo": "activity-card-love",
+      "description": "Love-category activity; selected state uses cream, outline and dot.",
+      "html": "<button class=\"ds-activity\" aria-pressed=\"false\"><span>Exploring local food markets</span></button><button class=\"ds-activity ds-selected\" aria-pressed=\"true\"><span>Sharing stories</span></button>",
+      "css": ".ds-activity{position:relative;display:inline-flex;align-items:flex-start;vertical-align:top;width:180px;min-height:146px;padding:20px 16px;text-align:left;border:1px solid #b7c1b8;border-radius:var(--radius, 14px);background:#f9dfd5;color:var(--ink, #21312b);cursor:pointer;transition:background .2s cubic-bezier(.16,1,.3,1),outline-color .2s,box-shadow .2s}.ds-activity span{font:500 19px/1.25 Fraunces,Georgia,serif;letter-spacing:-.02em;overflow-wrap:anywhere;hyphens:auto}.ds-activity:hover:not(:disabled){box-shadow:0 5px 15px #21312b14}.ds-activity:focus-visible{outline:3px solid var(--ink, #21312b);outline-offset:4px}.ds-activity.ds-selected{outline:3px solid var(--ink, #21312b);outline-offset:1px;background:var(--cream, #fffdf9)}.ds-selected::after{content:\"\";width:8px;height:8px;border-radius:50%;background:var(--ink, #21312b);position:absolute;bottom:12px;right:12px}.ds-activity:disabled{opacity:.5;cursor:not-allowed}@media(max-width:760px){.ds-activity{min-height:136px;padding:16px 12px}.ds-activity span{font-size:17px}}@media(prefers-reduced-motion:reduce){.ds-activity{transition:none}}"
+    },
+    {
+      "name": "Prompt chip",
+      "kind": "chip",
+      "refersTo": "prompt-card-love",
+      "description": "A love activity shown during a turn.",
+      "html": "<span class=\"ds-prompt\">Exploring local food markets</span>",
+      "css": ".ds-prompt{display:inline-block;padding:12px 16px;border-radius:12px;background:#f9dfd5;color:var(--ink, #21312b);font:700 14px/1.5 Manrope,Arial,sans-serif}"
+    },
+    {
+      "name": "Idea card",
+      "kind": "card",
+      "refersTo": "vote-card",
+      "description": "An anonymous idea; set aria-pressed to true for the selected state.",
+      "html": "<button class=\"ds-vote\" aria-pressed=\"false\"><span class=\"ds-kind\">Anonymous idea</span><p>Host neighbourhood food walks.</p></button>",
+      "css": ".ds-vote{display:block;width:100%;min-height:160px;padding:24px;text-align:left;border:1px solid var(--line, #d8dcd3);border-radius:var(--radius, 14px);background:var(--cream, #fffdf9);color:var(--ink, #21312b);font-family:Manrope,Arial,sans-serif;cursor:pointer}.ds-vote:hover,.ds-vote[aria-pressed=\"true\"]{background:#f9dfd5}.ds-vote[aria-pressed=\"true\"]{outline:3px solid var(--ink, #21312b);outline-offset:2px}.ds-vote:focus-visible{outline:3px solid var(--ink, #21312b);outline-offset:4px}.ds-kind{font-size:12px;color:var(--muted, #58665f)}.ds-vote p{margin:12px 0 0;font-size:16px;line-height:1.6;overflow-wrap:anywhere}"
+    },
+    {
+      "name": "Room header",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Compact full-name brand and room status.",
+      "html": "<header class=\"ds-topbar\"><button class=\"ds-brand\" aria-label=\"Ikigai for Humanity home\"><span class=\"ds-mark\">i</span><span>Ikigai<small>for Humanity</small></span></button><span class=\"ds-note\">ROOM ABC123</span></header>",
+      "css": ".ds-topbar{min-height:48px;display:flex;justify-content:space-between;align-items:center;gap:20px}.ds-brand{display:flex;align-items:center;gap:10px;min-height:44px;padding:0;border:0;background:none;color:var(--ink, #21312b);font:600 23px/1 Fraunces,Georgia,serif;text-align:left;cursor:pointer}.ds-brand small{display:block;margin-top:4px;font:700 10px/1 Manrope,Arial,sans-serif;letter-spacing:.02em}.ds-mark{display:grid;place-items:center;width:32px;height:36px;border-radius:14px;background:#f9dfd5;font-size:24px}.ds-note{color:var(--muted, #58665f);font:12px/1.5 Manrope,Arial,sans-serif;font-variant-numeric:tabular-nums}.ds-brand:focus-visible{outline:3px solid var(--ink, #21312b);outline-offset:4px}@media(max-width:760px){.ds-topbar{gap:12px}.ds-note{font-size:10px}}"
+    },
+    {
+      "name": "Cream panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Shared game-step container.",
+      "html": "<section class=\"ds-panel\"><h3>Your cards are ready.</h3><p>Wait for everyone to finish.</p></section>",
+      "css": ".ds-panel{max-width:860px;padding:clamp(20px,3.5vw,36px);border-radius:var(--radius, 14px);background:var(--cream, #fffdf9);color:var(--ink, #21312b);font:16px/1.5 Manrope,Arial,sans-serif}.ds-panel h3{margin:0 0 12px;font:500 25px/1.08 Fraunces,Georgia,serif;letter-spacing:-.03em}.ds-panel p{margin:10px 0 0;color:var(--muted, #58665f);font-size:13px}@media(max-width:760px){.ds-panel{padding:20px 16px}}"
+    },
+    {
+      "name": "Selection bar",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Sticky category summary with cream controls and a paper hover fill.",
+      "html": "<div class=\"ds-selection\"><p><b>3 of 3</b> selected for what you love</p><button class=\"ds-continue\">Next category</button></div>",
+      "css": ".ds-selection{position:sticky;bottom:12px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px;border-radius:var(--radius, 14px);background:var(--ink, #21312b);color:var(--cream, #fffdf9);font:13px/1.5 Manrope,Arial,sans-serif}.ds-selection p{margin:0}.ds-continue{min-height:46px;padding:12px 22px;border:1px solid var(--ink, #21312b);border-radius:999px;font:800 14px/1.5 Manrope,Arial,sans-serif;cursor:pointer;transition:background .18s,color .18s;padding:10px 16px;font-size:12px;background:var(--cream, #fffdf9);color:var(--ink, #21312b);border-color:var(--cream, #fffdf9)}.ds-continue:hover:not(:disabled){background:var(--paper, #f7f3ed);color:var(--ink, #21312b)}.ds-continue:focus-visible{outline:3px solid var(--ink, #21312b);outline-offset:4px}.ds-continue:disabled{opacity:.5;cursor:not-allowed}@media(max-width:760px){.ds-selection{flex-direction:column;align-items:stretch;gap:12px;padding:14px}}@media(prefers-reduced-motion:reduce){.ds-continue{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The original pastel card game",
+    "overview": "Keep the user's existing warm cream game, with dark green text, four pastel categories and Fraunces headings. Manrope labels and controls keep actions readable. Reduce repeated instructions and expose optional choices only where needed.\n\nThis document records the implementation in `public/game.css`, `public/room.js`, `public/game-core.js` and `app/game.html`, checked on 2026-10-04. The user rejected replacing this identity. The discarded direction comps carry no approval.",
+    "keyCharacteristics": [
+      "Cream panels sit on a warm paper background.",
+      "Pastel category fills repeat in labels, activity cards and turn prompts.",
+      "Serif headings and card titles pair with compact sans-serif controls.",
+      "Selection changes fill and adds a dark outline and dot."
+    ],
+    "rules": [
+      {
+        "name": "The category rule",
+        "body": "Keep the love, strength, opportunity and need color mapping consistent across every view.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do preserve the warm paper, cream, coral, blue, yellow and green palette.",
+      "Do use Fraunces for headings and activity titles and Manrope for controls and body copy.",
+      "Do keep category identity consistent in labels, cards and prompts.",
+      "Do show selection through fill, outline and a dot, with keyboard focus visible.",
+      "Do put concise instructions beside the action that needs them.",
+      "Do respect the existing mobile grids and reduced-motion behavior."
+    ],
+    "donts": [
+      "Don't treat the discarded direction comps as an approved replacement identity.",
+      "Don't add decoration, repeated explanation or setup choices to the home actions.",
+      "Don't use category color as the sole indication of selected state.",
+      "Don't present pending round-ending or scoring rules as implemented behavior."
+    ]
+  }
+}
