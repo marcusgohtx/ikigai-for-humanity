@@ -217,7 +217,13 @@ Prompt chips carry the activity text and category tint without decorative dots. 
 
 Waiting text identifies who is writing or choosing. Toasts report brief action results and use `role="status"`. The app container announces updates politely.
 
-Setup has no round-count control. At each round boundary, the host sees Keep playing and Stop playing in the existing cream panel with coral and quiet buttons. Other players see a short waiting message. Stopping reveals cumulative author votes and names all tied leaders above the preserved idea recap. Copy recap includes the results; Done remains available.
+### Round endings and final votes
+
+Setup has no round-count control. Every game starts with one turn per player. Turn progress shows the current round and the player's position within that round.
+
+At each round boundary, the host sees Keep playing and Stop playing in the existing cream panel with coral and quiet buttons. Other players see a short waiting message. Keep playing reuses the activity cards for another turn each. Scores remain hidden during play and at the round pause.
+
+Stop playing reveals cumulative author votes and names all tied leaders above the preserved idea recap. Copy recap includes the results; Done remains available. PRODUCT.md is the source for scoring and round rules. When those rules change, review this section and README.md against the implemented controls and copy.
 
 ## Do's and Don'ts
 

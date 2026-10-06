@@ -23,6 +23,8 @@ Room data expires 30 days after creation. Unfinished writing stays in the player
 
 ## Verification
 
+The repository's `.github/workflows/hosted-app.yml` runs hosted lint, TypeScript checks, Node tests and the production build on every push and pull request, using Node 24. It also supports manual runs. The separate Pages workflow checks and deploys the root redirect site. Passing hosted checks does not deploy the ChatGPT Site.
+
 Run the Node tests with `node --test --test-isolation=none tests/*.test.mjs`.
 
 `node tests/http-smoke.mjs http://127.0.0.1:5173` plays a complete three-player game through the real API. It checks separate browser sessions, simultaneous submissions, role checks, anonymous voting, duplicate requests and the complete recap. It creates only a synthetic test room.

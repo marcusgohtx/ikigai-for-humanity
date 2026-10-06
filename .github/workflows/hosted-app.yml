@@ -1,0 +1,39 @@
+name: Hosted app checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hosted-app-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Hosted lint, types, tests and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: sites/ikigai-for-humanity
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: sites/ikigai-for-humanity/package-lock.json
+      - name: Install locked dependencies
+        run: npm run install:ci
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck
+        run: node node_modules/typescript/bin/tsc --noEmit --incremental false
+      - name: Test
+        run: node --test --test-isolation=none tests/*.test.mjs
+      - name: Build
+        run: npm run build
